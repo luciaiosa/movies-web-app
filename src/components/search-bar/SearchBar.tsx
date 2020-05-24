@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
-import SearchIcon from '@material-ui/icons/Search';
+import SearchIcon from "@material-ui/icons/Search";
 import { styles } from "./SearchBarStyles";
 
 interface SearchBarProps extends React.HTMLProps<{}> {
     searchTerm: string;
-    onSubmitSearch(): void;
     onSearchValueChange(value: string): void;
 }
 
@@ -20,8 +19,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = (
                 placeholder="Search"
                 value={props.searchTerm}
                 spellCheck={false}
-                onBlur={() => props.onSubmitSearch()}
-                onChange={e => props.onSearchValueChange(e.target.value)}
+                onChange={(e) => props.onSearchValueChange(e.target.value)}
             />
         </div>
     );

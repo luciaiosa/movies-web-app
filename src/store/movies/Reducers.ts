@@ -1,6 +1,9 @@
 import {GET_MOVIES, GOT_MOVIES, GET_MOVIE_BY_ID,
      GOT_MOVIE_BY_ID, 
-    CLEAR_SELECTED_MOVIE, SET_MOVIES_ERROR, SET_FAVOURITE_MOVIE, REMOVE_FAVOURITE_MOVIE, SET_PAGINATION_SELECTED_PAGE, SET_PAGINATION_ELLIPSE_UPPER_PAGES_NUMBER, SET_PAGINATION_ELLIPSE_LOWER_PAGES_NUMBER} from './Actions';
+    CLEAR_SELECTED_MOVIE, SET_MOVIES_ERROR, 
+    SET_FAVOURITE_MOVIE, REMOVE_FAVOURITE_MOVIE, 
+    SET_PAGINATION_SELECTED_PAGE, SET_PAGINATION_ELLIPSE_UPPER_PAGES_NUMBER, 
+    SET_PAGINATION_ELLIPSE_LOWER_PAGES_NUMBER, SET_SEARCH_TERM} from './Actions';
 import {InitialMovieStore, MovieStore, PaginationStore, InitialPaginationStore} from './MovieStore';
 import { Reducer, AnyAction } from 'redux';
 
@@ -65,6 +68,8 @@ export const moviesReducer: Reducer<MovieStore, AnyAction> = (state = InitialMov
                 hasError: true,
                 errorMessage: action.payload.message
             }
+        case SET_SEARCH_TERM:
+            return { ...state, searchTerm: action.payload };
         default:
             return state;
     }

@@ -1,0 +1,21 @@
+.ratings-container {
+    align-self: flex-start;
+    border: 1px solid lightgray;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: large;
+    .rating {
+        margin: 10px;
+        div.value {
+            width: 25%;
+        }
+        div.source {
+            width: 75%;
+        }
+    }
+    .ratings-title {
+        background-color: lightskyblue;
+        padding: 10px;
+        color: darkblue;
+    }
+}

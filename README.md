@@ -2,6 +2,11 @@
 
 Movies web app using OMDB open API, React, Typescript, Redux, Sagas, material-ui and Sass.
 
+## Prerequisites
+
+* **npm >= 5.5.0**
+* **node > 10.13.0**
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -20,21 +25,17 @@ You will also see any lint errors in the console.
 
 ### `yarn build`
 
-Builds the app for development to the `build` folder.<br />
+Builds the app for development to the `dist` folder.<br />
 It correctly bundles React in development mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
 See the section about [deployment](https://webpack.js.org/guides/development/) for more information.
 
 ### `yarn build:prod`
 
-Builds the app for production to the `build` folder.<br />
+Builds the app for production to the `dist` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
 See the section about [production](https://webpack.js.org/guides/production/) for more information.
 

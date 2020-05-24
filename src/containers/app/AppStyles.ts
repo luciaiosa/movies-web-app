@@ -4,7 +4,7 @@ export const styles = makeStyles((theme: Theme) =>
     createStyles({
         body: {
             minHeight: "100vh",
-            minWidth: 420,
+            position: "relative",
         },
     })
 );

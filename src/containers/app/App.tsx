@@ -9,7 +9,8 @@ import { Container } from "@material-ui/core";
 import services from "../../services";
 import { setIsLogged } from "../../store/app";
 import Login from "../../containers/login/Login";
-import { loginRoute, homeRoute } from "../../config/routes";
+import { loginRoute, movieDetailRoute, homeRoute } from "../../config/routes";
+import MovieDetail from "../movies/MovieDetail";
 import Home from "../../containers/home/Home";
 import { styles } from "./AppStyles";
 import "./App.scss";
@@ -32,10 +33,18 @@ const App: FunctionComponent = () => {
                     <Route path={loginRoute()} exact component={Login} />
                     <>
                         <Header />
-                        <Container maxWidth="xl">
+                        <Container
+                            maxWidth="xl"
+                            style={{ paddingBottom: "5.5em" }}
+                        >
                             <Route path={homeRoute()} exact component={Home} />
+                            <Route
+                                path={movieDetailRoute()}
+                                exact
+                                component={MovieDetail}
+                            />
                         </Container>
-                        <Footer content="❮❯ by OMDB 2020" />
+                        <Footer content="❮❯ 2020" />
                     </>
                 </Switch>
             </BrowserRouter>

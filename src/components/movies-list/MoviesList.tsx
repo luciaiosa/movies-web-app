@@ -11,9 +11,12 @@ import {
     setFavouriteMovie,
     removeFavouriteMovie,
     PaginationStore,
+    setPaginationEllipseUpperPagesNumber,
     setPaginationSelectedPage,
+    setSearchTerm,
 } from "../../store/movies";
 import { AppStore } from "../../store/app/AppStore";
+import { setBreadcrumbs } from "../../store/app";
 import SearchBar from "../../components/search-bar/SearchBar";
 import { styles } from "./MoviesListStyles";
 import Pagination from "../../components/pagination/Pagination";
@@ -21,15 +24,20 @@ import CustomError from "../../components/error/Error";
 import { useWindowResize } from "../../hooks/useWindowResize";
 import settings from "../../appSettings.json";
 import services from "../../services";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
+import StarIcon from "@material-ui/icons/Star";
 import { Favourite } from "../favourite/Favourite";
 
 const MoviesList: FunctionComponent = (): JSX.Element => {
     const classes = styles();
-    const [searchTerm, setSearchTerm] = useState<string>("");
     const windowWidth = useWindowResize().width;
     const [gridListColsNumber, setGridListColsNumber] = useState(2);
 
-    const { movies, pages, hasError, errorMessage } = useSelector<
+    /* useSelector is a function that takes the current state as an argument 
+    and returns whatever data you want from it. It’s very similiar to mapStateToProps() 
+    and it allows to store the return values inside a variable within the scope of the 
+    functional components instead of passing down as props */
+    const { movies, searchTerm, pages, hasError, errorMessage } = useSelector<
         AppStore,
         MovieStore
     >((state) => state.movieStore);
@@ -45,12 +53,17 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getMoviesRequest(currentPage));
+        dispatch(getMoviesRequest(currentPage, searchTerm));
+        /* dispatch(setBreadcrumbs([])); */
     }, []);
 
     useEffect(() => {
         setGridListColsNumber(calculateColsNumber(windowWidth));
     }, [windowWidth]);
+
+    useEffect(() => {
+        dispatch(getMoviesRequest(currentPage, searchTerm));
+    }, [searchTerm]);
 
     const calculateColsNumber = (windowWidth: number) => {
         switch (true) {
@@ -73,12 +86,8 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
             : classes.pageHeader;
     };
 
-    const onSearchBarTerm = () => {
-        dispatch(getMoviesRequest(currentPage, searchTerm));
-    };
-
     const onSearchBarValueChange = (value: string) => {
-        setSearchTerm(value);
+        dispatch(setSearchTerm(value));
     };
 
     const onCurrentPageChange = (value: number) => {
@@ -103,8 +112,11 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
         services.userService.removeFavouriteMovie(id);
         dispatch(removeFavouriteMovie(id));
     };
-    const renderList = (): JSX.Element[] => {
-        return movies.map((movie: MovieResume, index: number) => {
+    const renderList = (): JSX.Element => {
+        if (!movies || movies.length === 0) {
+            return <CustomError title="Movies not found" />;
+        }
+        const moviesList = movies.map((movie: MovieResume, index: number) => {
             return (
                 <GridListTile key={index}>
                     <img src={movie.Poster} alt={movie.Title} />
@@ -124,6 +136,15 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
                 </GridListTile>
             );
         });
+        return (
+            <GridList
+                cellHeight={550}
+                cols={gridListColsNumber}
+                className={classes.gridList}
+            >
+                {moviesList}
+            </GridList>
+        );
     };
 
     const renderPagination = (): JSX.Element => {
@@ -148,13 +169,7 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
         }
         return (
             <div>
-                <GridList
-                    cellHeight={550}
-                    cols={gridListColsNumber}
-                    className={classes.gridList}
-                >
-                    {renderList()}
-                </GridList>
+                {renderList()}
                 {renderPagination()}
             </div>
         );
@@ -172,7 +187,6 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
                     onSearchValueChange={(value) =>
                         onSearchBarValueChange(value)
                     }
-                    onSubmitSearch={() => onSearchBarTerm()}
                 />
             </div>
             {renderContent()}

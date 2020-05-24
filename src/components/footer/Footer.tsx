@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import {styles} from './FooterStyles';
+import "./Footer.scss";
 
 interface FooterProps {
     content: string;
@@ -7,11 +7,9 @@ interface FooterProps {
 const Footer: FunctionComponent<FooterProps> = (
     props: FooterProps
 ): JSX.Element => {
-    const classes = styles();
-    
     return (
-        <div className={classes.container}>
-            <span className={classes.content}>{props.content}</span>
+        <div className="flex flex-direction--column footer-container">
+            <span className="content">{props.content}</span>
         </div>
     );
 };

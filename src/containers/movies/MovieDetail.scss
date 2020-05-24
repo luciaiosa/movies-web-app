@@ -1,0 +1,85 @@
+.movie-detail {
+    background-color: #fff;
+    min-height: 75vh;
+    margin-top: 20px;
+
+    .movie-detail-card {
+        display: flex;
+        margin-top: 20px;
+
+        @media (max-width: 900px) {
+            flex-wrap: wrap;
+        }
+    }
+    .movie-detail-card-description {
+        margin-top: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+
+        > div:last-child {
+            margin-top: 10px;
+        }
+    }
+    .movie-detail-info-container {
+        font-size: 20px;
+        display: flex;
+        margin-top: 10px;
+        margin-left: 20px;
+        flex-wrap: wrap;
+    }
+    .movie-detail-info-header-container {
+        display: flex;
+        flex: 1 1;
+        flex-direction: column;
+        margin-left: 20px;
+        @media (max-width: 900px) {
+            margin-top: 20px;
+        }
+    }
+    .link {
+        text-decoration: none;
+    }
+    .info:first-child {
+        width: 75%;
+
+        @media (max-width: 900px) {
+            margin-top: 20px;
+        }
+
+        @media (min-width: 900px) and(max-width: 1200px) {
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+    .info:not(:first-child) {
+        flex: 1 1;
+
+        @media (max-width: 1200px) {
+            margin-top: 20px;
+            flex: 1 1 100%;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            margin-bottom: 20px;
+        }
+    }
+    .movie-detail-card-content {
+        width: 100vw;
+    }
+    .movie-image {
+        position: relative;
+        @media (max-width: 900px) {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+        }
+        > img {
+            width: 350px;
+            height: 100%;
+            @media (max-width: 1200px) {
+                height: 500px;
+            }
+        }
+    }
+}

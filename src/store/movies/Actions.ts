@@ -9,6 +9,7 @@ export const REMOVE_FAVOURITE_MOVIE = "REMOVE_FAVOURITE_MOVIE";
 export const SET_PAGINATION_SELECTED_PAGE = "SET_PAGINATION_SELECTED_PAGE";
 export const SET_PAGINATION_ELLIPSE_UPPER_PAGES_NUMBER = "SET_PAGINATION_ELLIPSE_UPPER_PAGES_NUMBER";
 export const SET_PAGINATION_ELLIPSE_LOWER_PAGES_NUMBER = "SET_PAGINATION_ELLIPSE_LOWER_PAGES_NUMBER";
+export const SET_SEARCH_TERM = "SET_SEARCH_TERM";
 
 export const getMoviesRequest = (currentPage: number, searchTerm?: string ) => ({
     type: GET_MOVIES,
@@ -66,4 +67,9 @@ export const setPaginationEllipseUpperPagesNumber = (pagesNumber: number) => ({
 export const setPaginationEllipseLowerPagesNumber = (pagesNumber: number) => ({
     type: SET_PAGINATION_ELLIPSE_LOWER_PAGES_NUMBER,
     payload: pagesNumber
+});
+
+export const setSearchTerm = (value: string) => ({
+    type: SET_SEARCH_TERM,
+    payload: value,
 });

@@ -1,30 +1,38 @@
 import React, { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
-import { styles } from './FormStyles';
+import { styles } from "./FormStyles";
+import { User } from "../../containers/login/Login";
+import { Button } from "@material-ui/core";
+import "./LoginForm.scss";
+import { useHistory } from "react-router-dom";
 
 interface LoginFormProps {
   onSubmit(data: User): void;
 }
-interface User {
-  email: string;
-  password: string;
-}
 
-const LoginForm: FunctionComponent<LoginFormProps> = (
-  props
-): JSX.Element => {
+const LoginForm: FunctionComponent<LoginFormProps> = (props): JSX.Element => {
   const { handleSubmit, register, errors } = useForm();
   const classes = styles();
+  const history = useHistory();
 
   const onSubmit = (values: any) => {
     props.onSubmit(values);
-  }
+  };
 
-  const labelFieldClassName = (field: string) => errors[field] ? classes.fieldLabelInvalid : classes.label;
-  const inputFieldClassName = (field: string) => errors[field] ? classes.fieldInputInvalid : classes.input;
+  const onCancel = () => {
+    history.goBack();
+  };
+
+  const labelFieldClassName = (field: string) =>
+    errors[field] ? classes.fieldLabelInvalid : classes.label;
+  const inputFieldClassName = (field: string) =>
+    errors[field] ? classes.fieldInputInvalid : classes.input;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="login-form-container"
+    >
       <p className={classes.formTitle}>Log in</p>
       <div className={classes.fieldContainer}>
         <label className={labelFieldClassName("email")}>Email*</label>
@@ -42,10 +50,14 @@ const LoginForm: FunctionComponent<LoginFormProps> = (
             },
           })}
         />
-        <span className={classes.error}>{errors.email && errors.email.message}</span>
+        <span className={classes.error}>
+          {errors.email && errors.email.message}
+        </span>
       </div>
       <div className={classes.fieldContainer}>
-        <label className={labelFieldClassName("password")}>Password*</label>
+        <label className={labelFieldClassName("password")}>
+          Password*
+                </label>
         <input
           className={inputFieldClassName("password")}
           name="password"
@@ -62,11 +74,31 @@ const LoginForm: FunctionComponent<LoginFormProps> = (
             },
           })}
         />
-        <span className={classes.error}>{errors.password && errors.password.message}</span>
+        <span className={classes.error}>
+          {errors.password && errors.password.message}
+        </span>
       </div>
 
-      <div className={classes.fieldContainer}>
-        <button type="submit" className={classes.button}>Submit</button>
+      <div className="buttons-group">
+        <Button
+          type="submit"
+          className="button"
+          variant="contained"
+          color="primary"
+          size="medium"
+        >
+          Submit
+                </Button>
+        <Button
+          type="button"
+          className="button"
+          variant="contained"
+          color="primary"
+          size="medium"
+          onClick={onCancel}
+        >
+          Cancel
+                </Button>
       </div>
     </form>
   );

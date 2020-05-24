@@ -2,15 +2,6 @@ import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 
 export const styles = makeStyles((theme: Theme) =>
     createStyles({
-        form: {
-            margin: "30px auto",
-            border: "1px solid #eee",
-            padding: 20,
-            boxShadow: "0 2px 3px #ccc",
-            minWidth: 400,
-            minHeight: 400
-        },
-    
         formTitle: {
             display: "block",
             width: "100%",
@@ -21,14 +12,13 @@ export const styles = makeStyles((theme: Theme) =>
             color: "#333",
             border: 0,
             borderBottom: "1px solid #e5e5e5",
-            textAlign: "center"
+            textAlign: "center",
         },
         fieldContainer: {
             margin: "20px auto",
             display: "flex",
             justifyContent: "center",
-            alignItems: "stretch",
-            flexDirection: "column"
+            flexDirection: "column",
         },
         fieldLabelInvalid: {
             color: "red",
@@ -40,12 +30,12 @@ export const styles = makeStyles((theme: Theme) =>
             backgroundColor: "salmon",
             font: "inherit",
             padding: "6px 12px",
-            boxSizing: "border-box"
+            boxSizing: "border-box",
         },
         label: {
             marginBottom: 5,
             fontWeight: 700,
-            color: "#4e4e4e"
+            color: "#4e4e4e",
         },
         input: {
             font: "inherit",
@@ -55,16 +45,16 @@ export const styles = makeStyles((theme: Theme) =>
             "&:focus": {
                 outline: "none",
                 border: "1px solid #521751",
-                backgroundColor: "#eee"
-            }
+                backgroundColor: "#eee",
+            },
         },
         error: {
-            color: "red"
+            color: "red",
         },
         flex: {
             display: "flex",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
         },
         button: {
             backgroundColor: "#3782a3",
@@ -77,7 +67,7 @@ export const styles = makeStyles((theme: Theme) =>
             display: "flex",
             alignSelf: "center",
             justifyContent: "center",
-            marginTop: 20
-        }
+            marginTop: 20,
+        },
     })
 );

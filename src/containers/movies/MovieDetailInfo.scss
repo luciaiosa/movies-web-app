@@ -1,0 +1,14 @@
+.movie-detail-info {
+    align-self: flex-start;
+    width: 100%;
+    > div {
+        margin-bottom: 10px;
+    }
+    > div:last-child {
+        width: 85%;
+        margin-bottom: 0px;
+    }
+    > div:first-child {
+        min-width: 110px;
+    }
+}

@@ -50,6 +50,7 @@ export interface MovieDetail {
 
 export interface MovieStore {
     readonly loading: boolean;
+    readonly searchTerm: string;
     readonly pages: number;
     readonly movies: MovieResume[];
     readonly selectedMovie: MovieDetail | undefined;
@@ -59,6 +60,7 @@ export interface MovieStore {
 
 export const InitialMovieStore: MovieStore = {
     loading: false,
+    searchTerm: "",
     pages: 1,
     movies: [],
     selectedMovie: undefined,

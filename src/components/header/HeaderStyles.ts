@@ -1,12 +1,12 @@
-import {createStyles, makeStyles} from '@material-ui/core/styles';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 
-export const styles = makeStyles(() => 
+export const styles = makeStyles(() =>
     createStyles({
         container: {
             backgroundColor: "#3782a3",
             height: 110,
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
         },
         menuContainer: {
             borderRadius: 0,
@@ -20,22 +20,21 @@ export const styles = makeStyles(() =>
             minHeight: "3rem",
         },
         link: {
-            textDecoration: "none"
+            textDecoration: "none",
         },
         linkMenu: {
             marginRight: 20,
             alignSelf: "center",
             paddingLeft: 10,
-            width: 150,
-            heigth: 120
+            width: "auto",
         },
         logoLink: {
             fontWeight: 400,
             fontSize: "x-large",
             color: "white",
             "&:hover": {
-                color: "	 #80dfff"
-            }
-        }
+                color: "	 #80dfff",
+            },
+        },
     })
-)
+);

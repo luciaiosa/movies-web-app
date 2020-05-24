@@ -49,7 +49,7 @@ const Header: FunctionComponent = (): JSX.Element => {
             <div className={classes.menuContainer}>
                 <div className={classes.linkMenu}>
                     <Link to={homeRoute()} className={classes.link}>
-                        <h3 className={classes.logoLink}>OMDB</h3>
+                        <h3 className={classes.logoLink}>Movie Web App</h3>
                         {/* <img src={logo} alt="logo" className={classes.logo}/> */}
                     </Link>
                 </div>
