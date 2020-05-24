@@ -1,5 +1,5 @@
 import React from "react";
-import { Rating } from "../../store/movies/MovieStore";
+import { Rating } from "@stores/movies/MovieStore";
 import "./Ratings.scss";
 
 interface IRatingProps {

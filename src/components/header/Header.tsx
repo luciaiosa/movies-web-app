@@ -1,13 +1,11 @@
 import React, { FunctionComponent } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { styles } from "./HeaderStyles";
-import { homeRoute, loginRoute } from "../../config/routes";
+import { homeRoute, loginRoute } from "@config/routes";
 import { Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { AppStore, setIsLogged } from "../../store/app";
-import services from "../../services";
-
-// import logo from "../../assets/logo.png";
+import { AppStore, setIsLogged } from "@stores/app";
+import services from "@services";
 
 const Header: FunctionComponent = (): JSX.Element => {
     const classes = styles();
@@ -50,7 +48,6 @@ const Header: FunctionComponent = (): JSX.Element => {
                 <div className={classes.linkMenu}>
                     <Link to={homeRoute()} className={classes.link}>
                         <h3 className={classes.logoLink}>Movie Web App</h3>
-                        {/* <img src={logo} alt="logo" className={classes.logo}/> */}
                     </Link>
                 </div>
                 <div>{renderMenu()}</div>

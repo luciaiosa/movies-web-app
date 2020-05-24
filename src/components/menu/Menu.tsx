@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useStyles } from "./MenuStyles";
-import { loginRoute } from "../../config/routes";
-import services from '../../services';
+import { loginRoute } from "@config/routes";
+import services from '@services';
 import { Button } from "@material-ui/core";
-import { setIsLogged } from '../../store/app/Actions';
+import { setIsLogged } from '@stores/app/Actions';
 import { useDispatch, useSelector } from "react-redux";
-import { AppStore } from "../../store/app";
+import { AppStore } from "@stores/app";
 
 const Menu = (): JSX.Element => {
     const classes = useStyles();

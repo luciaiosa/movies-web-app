@@ -11,21 +11,17 @@ import {
     setFavouriteMovie,
     removeFavouriteMovie,
     PaginationStore,
-    setPaginationEllipseUpperPagesNumber,
     setPaginationSelectedPage,
     setSearchTerm,
-} from "../../store/movies";
-import { AppStore } from "../../store/app/AppStore";
-import { setBreadcrumbs } from "../../store/app";
-import SearchBar from "../../components/search-bar/SearchBar";
+} from "@stores/movies";
+import { AppStore } from "@stores/app/AppStore";
+import SearchBar from "@components/search-bar/SearchBar";
 import { styles } from "./MoviesListStyles";
-import Pagination from "../../components/pagination/Pagination";
-import CustomError from "../../components/error/Error";
-import { useWindowResize } from "../../hooks/useWindowResize";
+import Pagination from "@components/pagination/Pagination";
+import CustomError from "@components/error/Error";
+import { useWindowResize } from "@hooks/useWindowResize";
 import settings from "../../appSettings.json";
-import services from "../../services";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
-import StarIcon from "@material-ui/icons/Star";
+import services from "@services";
 import { Favourite } from "../favourite/Favourite";
 
 const MoviesList: FunctionComponent = (): JSX.Element => {
@@ -33,10 +29,6 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
     const windowWidth = useWindowResize().width;
     const [gridListColsNumber, setGridListColsNumber] = useState(2);
 
-    /* useSelector is a function that takes the current state as an argument 
-    and returns whatever data you want from it. It’s very similiar to mapStateToProps() 
-    and it allows to store the return values inside a variable within the scope of the 
-    functional components instead of passing down as props */
     const { movies, searchTerm, pages, hasError, errorMessage } = useSelector<
         AppStore,
         MovieStore
@@ -54,7 +46,6 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
 
     useEffect(() => {
         dispatch(getMoviesRequest(currentPage, searchTerm));
-        /* dispatch(setBreadcrumbs([])); */
     }, []);
 
     useEffect(() => {
@@ -184,7 +175,7 @@ const MoviesList: FunctionComponent = (): JSX.Element => {
 
                 <SearchBar
                     searchTerm={searchTerm}
-                    onSearchValueChange={(value) =>
+                    onSearchValueChange={(value: any) =>
                         onSearchBarValueChange(value)
                     }
                 />

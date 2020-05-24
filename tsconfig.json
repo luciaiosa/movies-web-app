@@ -15,7 +15,16 @@
         "sourceMap": true,
         "isolatedModules": true,
         "resolveJsonModule": true,
-        "target": "es5"
+        "target": "es5",
+        "baseUrl": "./",
+        "paths": {
+            "@components/*": [ "src/components/*"],
+            "@config/*": [ "src/config/*"],
+            "@containers/*": [ "src/containers/*"],
+            "@hooks/*": [ "src/hooks/*"],
+            "@services/*": [ "src/services/*"],
+            "@stores/*": [ "src/store/*"]
+        }
     },
     "include": ["./src/**/**/*"]
 }

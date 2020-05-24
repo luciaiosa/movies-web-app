@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { styles } from "./HomeStyles";
-import MoviesList from "../../components/movies-list/MoviesList";
+import MoviesList from "@components/movies-list/MoviesList";
 
 const Home: FunctionComponent = (): JSX.Element => {
     const classes = styles();

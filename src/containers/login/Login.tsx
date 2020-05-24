@@ -1,11 +1,11 @@
 import React, { FunctionComponent, useState } from "react";
 import { styles } from "./LoginStyles";
-import LoginForm from "../../components/forms/LoginForm";
-import services from '../../services';
+import LoginForm from "@components/forms/LoginForm";
+import services from '@services';
 import { useHistory } from "react-router-dom";
-import { setIsLogged } from '../../store/app/Actions';
+import { setIsLogged } from '@stores/app/Actions';
 import { useDispatch } from "react-redux";
-import { homeRoute } from "../../config/routes";
+import { homeRoute } from "@config/routes";
 
 export interface User {
     email: string;
@@ -33,9 +33,7 @@ const Login: FunctionComponent = (): JSX.Element => {
 
     const renderContent = (): JSX.Element => {
         return (
-            <div className={classes.content}>
-                <LoginForm onSubmit={onSubmit}></LoginForm>
-            </div>
+            <LoginForm onSubmit={onSubmit}></LoginForm>
         );
     };
     const renderErrorMessage = (): JSX.Element | null => {

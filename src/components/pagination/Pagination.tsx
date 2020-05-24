@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { styles } from "./PaginationStyles";
 import { useDispatch } from "react-redux";
-import { setPaginationEllipseUpperPagesNumber, setPaginationEllipseLowerPagesNumber, setPaginationSelectedPage } from "../../store/movies";
+import { setPaginationEllipseUpperPagesNumber, setPaginationEllipseLowerPagesNumber, setPaginationSelectedPage } from "@stores/movies";
 
 interface PaginationConfig {
     showPagesNumber: number;
@@ -22,18 +22,10 @@ const Pagination: FunctionComponent<PagerProps> = (
     const { showPagesNumber } = props.config;
     const classes = styles();
     const { currentPage, ellipseUpperPagesNumber, ellipseLowerPagesNumber } = props;
-    /* const [selectedPage, setSelectedPage] = useState<number>(1); */
     const [prevButtonDisabled, setPrevButtonDisabled] = useState<string>(
         "disabled"
     );
     const [nextButtonDisabled, setNextButtonDisabled] = useState<string>("");
-
-    /*  const [ellipseUpperPagesNumber, setEllipseUpperPagesNumber] = useState<
-         number
-     >(showPagesNumber);
-     const [ellipseLowerPagesNumber, setEllipseLowerPagesNumber] = useState<
-         number
-     >(0); */
 
     const dispatch = useDispatch();
 

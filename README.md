@@ -39,6 +39,14 @@ The build is minified and the filenames include the hashes.<br />
 
 See the section about [production](https://webpack.js.org/guides/production/) for more information.
 
+## Log in to test favorite movies
+
+``` 
+email: test@test.com
+password: Test1+
+
+```
+
 ## Learn More
 
 You can learn more in the [Webpack documentation](https://webpack.js.org/guides/getting-started/).

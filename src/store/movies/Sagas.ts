@@ -4,8 +4,8 @@ import {
     setMoviesError,
     getMovieByIdRequestSuccess,
 } from "./Actions";
-import services from "../../services";
-import { MovieSearchRequest } from "../../services/movieClient";
+import services from "@services";
+import { MovieSearchRequest } from "@services/movieClient";
 
 export function* getMovies(action: any) {
     try {

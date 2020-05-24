@@ -10,24 +10,15 @@ export const styles = makeStyles((theme: Theme) =>
             overflow: "hidden",
             backgroundColor: theme.palette.background.paper,
             flexDirection: "column",
-            minHeight: "75vh"
+            minHeight: "75vh",
+            height: "100vh"
         },
         container: {
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "flex-start",
             alignContent: "center",
             overflow: "hidden",
             flexDirection: "column"
-        },
-        content: {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 40,
-            /* border: "1px solid #1dc9dd", */
-            margin: 35
         },
         description: {
             fontSize: "1.1rem",
@@ -40,8 +31,9 @@ export const styles = makeStyles((theme: Theme) =>
         },
         message: {
             height: 70,
-            fontSize: 18,
-            lineHeight: "1.4285em",
+            fontSize: "1.5rem",
+            lineHeight: "1.4em",
+            fontFamily: "Roboto, Helvetica, Arial, sans-serif",
             margin: 5,
             paddingLeft: 15,
             marginTop: 15,

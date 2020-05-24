@@ -23,6 +23,14 @@ module.exports = {
     node: { fs: "empty" },
     devtool: "cheap-module-eval-source-map",
     resolve: {
+        alias: {
+            "@components": path.resolve(__dirname, "src", "components"),
+            "@config": path.resolve(__dirname, "src", "config"),
+            "@containers": path.resolve(__dirname, "src", "containers"),
+            "@hooks": path.resolve(__dirname, "src", "hooks"),
+            "@services": path.resolve(__dirname, "src", "services"),
+            "@stores": path.resolve(__dirname, "src", "store")
+        },
         extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
     },
     module: {

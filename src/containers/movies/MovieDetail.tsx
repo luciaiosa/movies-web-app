@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect } from "react";
 import { RouteComponentProps } from "react-router";
 import "./MovieDetail.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { AppStore } from "../../store/app";
+import { AppStore } from "@stores/app";
 import {
     MovieStore,
     getMovieByIdRequest,
@@ -10,20 +10,20 @@ import {
     setFavouriteMovie,
     removeFavouriteMovie,
     Rating,
-} from "../../store/movies";
-import services from "../../services";
+} from "@stores/movies";
+import services from "@services";
 import { Link } from "react-router-dom";
-import { homeRoute } from "../../config/routes";
+import { homeRoute } from "@config/routes";
 import {
     Card,
-    CardContent,
     Typography,
     Divider,
     Button,
 } from "@material-ui/core";
-import { Favourite } from "../../components/favourite/Favourite";
+import { Favourite } from "@components/favourite/Favourite";
 import { MovieDetailInfo } from "./MovieDetailInfo";
-import { Ratings } from "../../components/ratings/Ratings";
+import { Ratings } from "@components/ratings/Ratings";
+import CustomError from "@components/error/Error";
 
 type MovieDetailParams = { id: string };
 
@@ -63,6 +63,9 @@ const MovieDetail: FunctionComponent<RouteComponentProps<MovieDetailParams>> = (
     };
 
     const renderDetail = () => {
+        if (hasError) {
+            return <CustomError title={errorMessage}></CustomError>;
+        }
         if (selectedMovie) {
             return (
                 <div>
