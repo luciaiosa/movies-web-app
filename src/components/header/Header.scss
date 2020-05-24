@@ -1,0 +1,38 @@
+.header-container {
+    background-color: #3782a3;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+
+    .menu-container {
+        border-radius: 0;
+        display: flex;
+        font-size: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 80px;
+        font-weight: 600;
+        min-height: 3rem;
+    }
+
+    .link-menu {
+        margin-right: 20px;
+        align-self: center;
+        padding-left: 10px;
+        width: 150px;
+        height: 120px;
+    }
+
+    .link {
+        text-decoration: none;
+    }
+
+    .logo-link {
+        font-weight: 400;
+        font-size: x-large;
+        color: #fff;
+        &.hover {
+            color: #80dfff;
+        }
+    }
+}
