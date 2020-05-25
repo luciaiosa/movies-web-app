@@ -18,7 +18,7 @@ export class UserService {
     getFavouriteMovies = (): string[] => {
         var values = services.storageService.getFromLocalStorage("favouriteMovies");
         if (typeof values === "string"){
-        return JSON.parse(values);
+            return JSON.parse(values);
         }
         return [];
     }
